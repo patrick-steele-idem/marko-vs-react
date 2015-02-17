@@ -1,0 +1,54 @@
+<!--
+Declare the top-level page JS/CSS dependencies in a separate optimizer.json file:
+-->
+<optimizer-page package-path="./optimizer.json"/>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Marko Rendering | Marko vs React</title>
+
+    <!--
+    CSS <link> tags will be inserted here:
+    -->
+    <optimizer-head/>
+</head>
+<body>
+    <h1>Search Results - Marko</h1>
+
+    <!--
+    The following part of the page is rendered asynchronously when
+    the search results data becomes available:
+    -->
+    <async-fragment data-provider="data.searchResults"
+        var="searchResultsData">
+
+        <!--
+        Forward along the data to the src/marko/components/app-search-results
+        UI component to do the rendering of the search results:
+        -->
+        <app-search-results search-results-data="$searchResultsData"/>
+
+    </async-fragment>
+
+    <!--
+    Inject the body <script> tags to include the required client-side code here:
+    -->
+    <optimizer-body/>
+
+    <!--
+    Generate the JavaScript code to initialize all of the widgets
+    rendered on the server:
+    -->
+    <init-widgets immediate/>
+
+    <!--
+    If launched using the browser-refresh app launcher then a <script>
+    tag will be injected to enable instant page refreshes when any
+    file is modified. See:
+    https://www.npmjs.com/package/browser-refresh
+    -->
+    <browser-refresh/>
+</body>
+</html>

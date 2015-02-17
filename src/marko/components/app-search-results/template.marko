@@ -1,0 +1,10 @@
+<div class="search-results" w-bind>
+    <button type="button" w-onclick="handleStartButtonClick">
+        Start Client Performance Tests
+    </button>
+    <div w-el-id="items">
+        <!-- Loop over the search results items: -->
+        <app-search-results-item item-data="$item"
+            for="item in data.items"/>
+    </div>
+</div>

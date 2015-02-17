@@ -1,0 +1,4 @@
+*.marko.js
+/node_modules
+/static
+/.cache

@@ -1,0 +1,1 @@
+require('src/marko/components/app-search-results');
