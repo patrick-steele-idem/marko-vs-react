@@ -321,7 +321,7 @@ It's important to emphasize that this benchmark is only comparing one specific u
 
 With that said, Marko can be used in combination _with_ React. Marko can be used to render the bulk of the page while React could be used to render smaller parts of the page that benefit from React. A Marko component can easily delegate rendering to a React component.
 
-Finally, we would like to revisit these benchmarks when React has matured. Also, the Node.js runtime and the io.js runtime are constantly evolving so these numbers may change over time due to the underlying platform. In addition, we are seeing significant differences when running tests in various browsers (e.g., Firefox took much longer to complete the client-side tests).
+Finally, we would like to revisit these benchmarks when the code to support server-side rendering of React components has been further optimized. Also, the Node.js runtime and the io.js runtime are constantly evolving so these numbers may change over time due to the underlying platform. In addition, we are seeing significant differences when running tests in various browsers (e.g., Firefox took much longer to complete the client-side tests).
 
 # Raw Data
 
