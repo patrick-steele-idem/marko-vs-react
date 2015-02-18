@@ -137,6 +137,23 @@ _NOTE: v40.0.2214.111 (64-bit)_
 
 _NOTE: v35.0.1_
 
+### Safari
+
+<table>
+    <tbody>
+        <tr>
+            <td>Marko</td>
+            <td align="right">325 ms</td>
+        </tr>
+        <tr>
+            <td>React</td>
+            <td align="right">713 ms</td>
+        </tr>
+    </tbody>
+</table>
+
+_NOTE: v8.0.3 (10600.3.18)_
+
 ## Page Weight
 
 ### JavaScript Page Weight
