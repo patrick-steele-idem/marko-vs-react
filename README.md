@@ -179,8 +179,6 @@ The output HTML can be compared using the links below:
 
 # Other Observations
 
-When profiling the client-side performance tests in Chrome it was noticed that React spent a lot more time in the garbage collector. For example, in one comparison Marko spent `37.1 ms` in the garbage collector, while React spent `104.1 ms` in the garbage collector.
-
 Also, when profiling client-side code it was observed that many of the internal functions used by React were unable to be optimized by the V8 optimizer due to how the functions were written. In comparison, for Marko all of the profiled functions were able to be optimized successfully.
 
 # Test Setup Details
