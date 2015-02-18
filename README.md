@@ -103,6 +103,8 @@ Finally, a web page that uses React will have a significantly higher weight due 
 
 Time taken to cycle through 100 pages of search results (100 search results items per page):
 
+### Chrome
+
 <table>
     <tbody>
         <tr>
@@ -115,6 +117,25 @@ Time taken to cycle through 100 pages of search results (100 search results item
         </tr>
     </tbody>
 </table>
+
+_NOTE: v40.0.2214.111 (64-bit)_
+
+### Firefox
+
+<table>
+    <tbody>
+        <tr>
+            <td>Marko</td>
+            <td align="right">947 ms</td>
+        </tr>
+        <tr>
+            <td>React</td>
+            <td align="right">2,963 ms</td>
+        </tr>
+    </tbody>
+</table>
+
+_NOTE: v35.0.1_
 
 ## Page Weight
 
