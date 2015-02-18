@@ -84,7 +84,7 @@ On the server, Marko was able to render the page much more quickly and with much
 
 It is also worth pointing out that React also suffers from a severe disadvantage in  that a page rendered on the server must be re-rendered on the client in order for behavior to be bound to UI components. When the re-rendering happens on the client, the exact same input data needs to be provided to the top-level UI component. For this benchmark, this means that the data used to render the initial pages of search results needed to be serialized to JSON and included in the output HTML rendered on the server. Even while temporarily disabling the serialization of JSON it was still observed that React was significantly slower doing server-side rendering.
 
-On the client, Marko was able to cycle through pages of search results in less time than React. The performance gap between Marko and React will likely vary by use case, but we observed that React was typically three times slower than Marko for this benchmark.
+On the client, Marko and React were able to cycle through pages of search results in about the same time. The performance gap between Marko and React will likely vary by use case and will be sensitive to the DOM structure.
 
 Finally, a web page that uses React will have a significantly higher weight due to the size of the React JavaScript library, as well as the addition of React-specific `data-*` attributes (e.g., `data-reactid=".t9c80npc00.1.$1.1"`) that are added to the output HTML during rendering. The page weight also increased due to the embedding of the extra JSON required to re-render the initial page on the client (discussed earlier).
 
@@ -112,7 +112,7 @@ Time taken to cycle through 100 pages of search results (100 search results item
         </tr>
         <tr>
             <td>React</td>
-            <td align="right">1,465 ms</td>
+            <td align="right">411 ms</td>
             <td>✖</td>
         </tr>
     </tbody>

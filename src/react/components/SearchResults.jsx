@@ -59,8 +59,8 @@ module.exports = React.createClass({
                       Start Client Performance Tests
                   </button>
                   <div>
-                  {searchResultsData.items.map(function(item) {
-                      return <SearchResultsItem key={item.id} itemData={item}/>
+                  {searchResultsData.items.map(function(item, i) {
+                      return <SearchResultsItem key={i} itemData={item}/>
                   })}
                   </div>
               </div>
