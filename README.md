@@ -108,12 +108,10 @@ Time taken to cycle through 100 pages of search results (100 search results item
         <tr>
             <td>Marko</td>
             <td align="right">415 ms</td>
-            <td>✔</td>
         </tr>
         <tr>
             <td>React</td>
             <td align="right">411 ms</td>
-            <td>✖</td>
         </tr>
     </tbody>
 </table>
