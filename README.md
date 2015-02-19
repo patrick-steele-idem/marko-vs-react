@@ -143,11 +143,11 @@ _NOTE: v35.0.1_
     <tbody>
         <tr>
             <td>Marko</td>
-            <td align="right">325 ms</td>
+            <td align="right">158 ms</td>
         </tr>
         <tr>
             <td>React</td>
-            <td align="right">713 ms</td>
+            <td align="right">509 ms</td>
         </tr>
     </tbody>
 </table>
