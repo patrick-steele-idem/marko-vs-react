@@ -143,7 +143,7 @@ _NOTE: v35.0.1_
     <tbody>
         <tr>
             <td>Marko</td>
-            <td align="right">158 ms</td>
+            <td align="right">258 ms</td>
         </tr>
         <tr>
             <td>React</td>
