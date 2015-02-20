@@ -10,14 +10,6 @@ module.exports = React.createClass({
           }
       },
 
-      componentDidUpdate: function() {
-          var done = this.doneCallback;
-          if (done) {
-              this.doneCallback = null;
-              done(); // All changes have been flushed to the DOM. Move to the next test pass...
-          }
-      },
-
       handleStartButtonClick: function() {
           var self = this;
 
@@ -31,19 +23,12 @@ module.exports = React.createClass({
            * @param {Function}  done               Function to trigger the next test pass when done
            */
           function updateDOM(searchResultsData, done) {
-              // We use the componentDidUpdate method to be notified when all
-              // of the changes have been fully flushed to the DOM. When
-              // the "componentDidUpdate" method is called by React, we invoke
-              // the stored "done" function to move to the next test pass.
-              self.doneCallback = done;
-
               // Trigger an update of the DOM by updating the internal state
-              // with the new search results data. This will trigger a re-render
-              // of this UI component and for the "componentDidUpdate" to
-              // eventually be called by React
+              // with the new search results data. When the changes
+              // are flushed to the DOM we invoke the provided callback.
               self.setState({
                   searchResultsData: searchResultsData
-              });
+              }, done);
           }
 
           // Start the client-side performance test
