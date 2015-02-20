@@ -2,9 +2,6 @@
 var React = require('react');
 
 module.exports = React.createClass({
-    componentDidMount: function () {
-    },
-
     getInitialState: function() {
         return {
             purchased: false
