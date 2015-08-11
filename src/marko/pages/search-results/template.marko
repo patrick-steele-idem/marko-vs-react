@@ -1,7 +1,7 @@
 <!--
-Declare the top-level page JS/CSS dependencies in a separate optimizer.json file:
+Declare the top-level page JS/CSS dependencies in a separate lasso.json file:
 -->
-<optimizer-page package-path="./optimizer.json"/>
+<lasso-page name="marko" package-path="./browser.json"/>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -12,10 +12,13 @@ Declare the top-level page JS/CSS dependencies in a separate optimizer.json file
     <!--
     CSS <link> tags will be inserted here:
     -->
-    <optimizer-head/>
+    <lasso-head/>
 </head>
 <body>
     <h1>Search Results - Marko</h1>
+
+    <ol style="display: none;" id="results">
+    </ol>
 
     <!--
     The following part of the page is rendered asynchronously when
@@ -35,7 +38,7 @@ Declare the top-level page JS/CSS dependencies in a separate optimizer.json file
     <!--
     Inject the body <script> tags to include the required client-side code here:
     -->
-    <optimizer-body/>
+    <lasso-body/>
 
     <!--
     Generate the JavaScript code to initialize all of the widgets

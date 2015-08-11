@@ -1,5 +1,6 @@
 require('app-module-path').addPath(__dirname);
 require('node-jsx').install({extension: '.jsx'});
+require('marko/node-require').install();
 
 var express = require('express');
 var serveStatic = require('serve-static');
@@ -8,10 +9,10 @@ var compression = require('compression');
 
 var isProduction = process.env.NODE_ENV === 'production';
 
-require('optimizer').configure({
+require('lasso').configure({
     plugins: [
-        'optimizer-marko',
-        'optimizer-jsx'
+        'lasso-marko',
+        'lasso-jsx'
     ],
     bundlingEnabled: isProduction ? true : false,
     minify: isProduction ? true : false,
@@ -21,7 +22,7 @@ require('optimizer').configure({
         { // Separate out the sample data into a separate bundle
             name: 'sample-data',
             dependencies: [
-                'require: src/shared/services/seach-results-data.json'
+                'require: ' + require.resolve('./src/shared/services/search-results-data.json')
             ]
         }
     ]
@@ -32,6 +33,7 @@ app.use(compression());
 app.get('/marko', require('./src/marko/pages/search-results'));
 app.get('/react', require('./src/react/pages/search-results'));
 app.use('/static', serveStatic(path.join(__dirname, 'static')));
+app.use('/images', serveStatic(path.join(__dirname, 'images')));
 app.get('/', require('./src/shared/pages/index'));
 
 var port = 8080;

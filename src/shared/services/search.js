@@ -1,4 +1,4 @@
-var searchResultsData = require('./seach-results-data.json');
+var searchResultsData = require('./search-results-data.json');
 
 exports.performSearch = function(input, callback) {
     var pageIndex = input.pageIndex || 0;

@@ -1,7 +1,7 @@
 <!--
-Declare the top-level dependencies in a separate optimizer.json file:
+Declare the top-level dependencies in a separate browser.json file:
 -->
-<optimizer-page package-path="./optimizer.json"/>
+<lasso-page name="react" package-path="./browser.json"/>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -12,10 +12,13 @@ Declare the top-level dependencies in a separate optimizer.json file:
     <!--
     CSS <link> tags will be inserted here:
     -->
-    <optimizer-head/>
+    <lasso-head/>
 </head>
 <body>
     <h1>Search Results - React</h1>
+
+    <ol style="display: none;" id="results">
+    </ol>
 
     <!--
     Loading the search results is done asynchronously so a
@@ -54,7 +57,7 @@ Declare the top-level dependencies in a separate optimizer.json file:
     <!--
     Inject the body <script> tags to include the required client-side code here:
     -->
-    <optimizer-body/>
+    <lasso-body/>
 
     <!--
     If launched using the browser-refresh app launcher then a <script>

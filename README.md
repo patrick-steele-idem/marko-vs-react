@@ -64,7 +64,7 @@ And then launch a web browser and load the following pages:
 - [http://localhost:8080/react](http://localhost:8080/react)
 - [http://localhost:8080/marko](http://localhost:8080/marko)
 
-On each page, click on the button at the top labeled "Start Client Performance Tests". The results of the test will be written to the browser console.
+On each page, click on the button at the top labeled "Start Client Performance Tests". The results of the test will be shown at the top of the page.
 
 # Results
 
@@ -72,13 +72,16 @@ The test setup is described in more detail later in this document, but below are
 
 - MacBook Pro (2.8 GHz Intel Core i7, 16 GB 1600 MHz DDR3)
 - Server-side:
-    - Node.js: v0.10.35
+    - Node.js: v0.12.7
 - Client-side:
-    - Chrome: v40.0.2214.111 (64-bit)
+    - Chrome: v44.0.2403.130 (64-bit)
+    - Firefox: v40.0
+    - Safari: 8.0.7 (10600.7.12)
+    - iPhone 6 with iOS 8.4
 
 ## Results Summary
 
-Marko was the winner in _all_ categories, and sometimes by a very significant margin.
+On the server, Marko was the winner by far. On the client, React and Marko performed nearly the same. However, on an iPhone 6 running iOS 8.4, Marko performed significantly better.
 
 On the server, Marko was able to render the page much more quickly and with much lower CPU and memory usage. These benchmarks indicate that React needs to go through a lot more optimization before it is ready to be used on the server.
 
@@ -108,51 +111,108 @@ Time taken to cycle through 100 pages of search results (100 search results item
 <table>
     <tbody>
         <tr>
+            <td></td>
+            <td>Run 1</td>
+            <td>Run 2</td>
+            <td>Run 3</td>
+        </tr>
+        <tr>
             <td>Marko</td>
-            <td align="right">415 ms</td>
+            <td align="right">1736 ms</td>
+            <td align="right">1719 ms</td>
+            <td align="right">1783 ms</td>
         </tr>
         <tr>
             <td>React</td>
-            <td align="right">411 ms</td>
+            <td align="right">1758 ms</td>
+            <td align="right">1715 ms</td>
+            <td align="right">1648 ms</td>
         </tr>
     </tbody>
 </table>
 
-_NOTE: v40.0.2214.111 (64-bit)_
+_NOTE: v44.0.2403.130 (64-bit)_
 
 ### Firefox
 
 <table>
     <tbody>
         <tr>
+            <td></td>
+            <td>Run 1</td>
+            <td>Run 2</td>
+            <td>Run 3</td>
+        </tr>
+        <tr>
             <td>Marko</td>
-            <td align="right">947 ms</td>
+            <td align="right">1909 ms</td>
+            <td align="right">2094 ms</td>
+            <td align="right">1912 ms</td>
         </tr>
         <tr>
             <td>React</td>
-            <td align="right">2,963 ms</td>
+            <td align="right">1891 ms</td>
+            <td align="right">2074 ms</td>
+            <td align="right">1808 ms</td>
         </tr>
     </tbody>
 </table>
 
-_NOTE: v35.0.1_
+_NOTE: v40.0_
 
 ### Safari
 
 <table>
     <tbody>
         <tr>
+            <td></td>
+            <td>Run 1</td>
+            <td>Run 2</td>
+            <td>Run 3</td>
+        </tr>
+        <tr>
             <td>Marko</td>
-            <td align="right">258 ms</td>
+            <td align="right">1403 ms</td>
+            <td align="right">1317 ms</td>
+            <td align="right">1321 ms</td>
         </tr>
         <tr>
             <td>React</td>
-            <td align="right">509 ms</td>
+            <td align="right">1347 ms</td>
+            <td align="right">1222 ms</td>
+            <td align="right">1331 ms</td>
         </tr>
     </tbody>
 </table>
 
-_NOTE: v8.0.3 (10600.3.18)_
+_NOTE: 8.0.7 (10600.7.12)_
+
+### iOS Mobile Safari
+
+<table>
+    <tbody>
+        <tr>
+            <td></td>
+            <td>Run 1</td>
+            <td>Run 2</td>
+            <td>Run 3</td>
+        </tr>
+        <tr>
+            <td>Marko</td>
+            <td align="right">6387 ms</td>
+            <td align="right">5641 ms</td>
+            <td align="right">5762 ms</td>
+        </tr>
+        <tr>
+            <td>React</td>
+            <td align="right">6999 ms</td>
+            <td align="right">6610 ms</td>
+            <td align="right">6335 ms</td>
+        </tr>
+    </tbody>
+</table>
+
+_NOTE: iPhone 6 with iOS 8.4_
 
 ## Page Weight
 
@@ -170,14 +230,14 @@ _NOTE: v8.0.3 (10600.3.18)_
     <tbody>
         <tr>
             <td>Marko</td>
-            <td align="right">43.6 KB</td>
-            <td align="right">13.7 KB</td>
+            <td align="right">58.15 KB</td>
+            <td align="right"><b>18.18 KB</b></td>
             <td>✔</td>
         </tr>
         <tr>
             <td>React</td>
-            <td align="right">167 KB</td>
-            <td align="right">46.4 KB</td>
+            <td align="right">178.83 KB</td>
+            <td align="right"><b>50.16 KB</b></td>
             <td>✖</td>
         </tr>
     </tbody>
@@ -197,14 +257,14 @@ _NOTE: v8.0.3 (10600.3.18)_
     <tbody>
         <tr>
             <td>Marko</td>
-            <td align="right">41.2 KB</td>
-            <td align="right">6.9 KB</td>
+            <td align="right">38.33 KB</td>
+            <td align="right">4.89 KB</td>
             <td>✔</td>
         </tr>
         <tr>
             <td>React</td>
-            <td align="right">62.6 KB</td>
-            <td align="right">10.7 KB</td>
+            <td align="right">54.76 KB</td>
+            <td align="right">7.57 KB</td>
             <td>✖</td>
         </tr>
     </tbody>
@@ -214,10 +274,6 @@ The output HTML can be compared using the links below:
 
 - [Marko output HTML](test/generated/html-marko.html)
 - [React output HTML](test/generated/html-react.html)
-
-# Other Observations
-
-Also, when profiling client-side code it was observed that many of the internal functions used by React were unable to be optimized by the V8 optimizer due to how the functions were written. In comparison, for Marko all of the profiled functions were able to be optimized successfully.
 
 # Test Setup Details
 
@@ -234,7 +290,7 @@ The code is divided into the following directories:
 - [/src/react](/src/react) - All UI components and page code that is specific to React
 - [/src/shared](/src/shared) - All code that is shared across Marko and React
 
-For both React and Marko, Marko templates is used to render the page skeleton and the [optimizer](https://github.com/raptorjs/optimizer) tool is used to deliver all of the required JavaScript code to the browser.
+For both React and Marko, Marko templates is used to render the page skeleton and the [Lasso.js](https://github.com/lasso-js/lasso) tool is used to deliver all of the required JavaScript code to the browser.
 
 On both the server and the client, the `NODE_ENV` variable is set to `production` since React behaves differently in non-production mode.
 
@@ -253,10 +309,11 @@ The template for the [`<app-search-results>`](src/marko/components/app-search-re
     <button type="button" w-onclick="handleStartButtonClick">
         Start Client Performance Tests
     </button>
-    <div w-el-id="items">
-        <!-- Use the <app-search-results-item> component to render each item: -->
+    <div>
+        <!-- Loop over the search results items: -->
         <app-search-results-item item-data="$item"
-            for="item in data.items"/>
+            for="item in data.items; status-var=loop"
+            w-id="item-${loop.getIndex()}"/>
     </div>
 </div>
 ```
@@ -264,9 +321,9 @@ The template for the [`<app-search-results>`](src/marko/components/app-search-re
 Behavior is attached to the DOM nodes by binding a "widget" to the root DOM nodes of each of the UI components using the `w-bind` attribute as shown in the following template used to render a search results item:
 
 ```html
-<div class="search-result-item" w-bind>
+<div class="search-results-item" w-bind>
     <h2>$data.title</h2>
-    <img src="$data.image" alt="$data.title"/>
+    <img src="$!data.image" alt="$data.title"/>
     <span>$!data.price</span>
     <button type="button" w-onclick="handleBuyButtonClick">
         Buy now!
@@ -274,21 +331,20 @@ Behavior is attached to the DOM nodes by binding a "widget" to the root DOM node
 </div>
 ```
 
-A widget is just a vanilla JavaScript constructor function as shown in the following sample code:
+The JavaScript code for the `<app-search-results-item>` UI component is shown below:
 
 ```javascript
-function Widget() {
+module.exports = require('marko-widgets').defineComponent({
+    template: require('./template.marko'),
 
-}
+    getTemplateData: function(state, input) {
+        return input.itemData;
+    },
 
-Widget.prototype = {
     handleBuyButtonClick: function() {
-        var el = this.el; // el will be the raw DOM node that the widget is bound to
         this.el.style.backgroundColor = 'yellow';
     }
-};
-
-exports.Widget = Widget;
+});
 ```
 
 During rendering of the Marko templates, Marko Widgets keeps track of all the rendered widgets (including the HTML element that they are bound to). This information is passed to the client as part of the DOM so that the widgets can efficiently be initialized when the page loads. If a UI component is rendered on the client, the list of rendered widgets is kept in memory and after the resulting HTML is added to the DOM all of the rendered widgets are then initialized.

@@ -51,7 +51,7 @@ function run(callback) {
             console.log('Server process exited with code ' + code + '\n');
 
             if (code !== 0) {
-                return callback(new Error('FAILURE: Server process exited with code ' + code))
+                return callback(new Error('FAILURE: Server process exited with code ' + code));
             }
 
             callback(null, statsByName);
