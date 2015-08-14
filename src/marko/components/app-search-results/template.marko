@@ -4,8 +4,8 @@
     </button>
     <div>
         <!-- Loop over the search results items: -->
-        <app-search-results-item item-data="$item"
-            for="item in data.items; status-var=loop"
+        <app-search-results-item item-data=item
+            for(item in data.items | status-var=loop)
             w-id="item-${loop.getIndex()}"/>
     </div>
 </div>

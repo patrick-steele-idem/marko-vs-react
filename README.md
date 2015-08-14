@@ -1,9 +1,11 @@
 Marko vs React: Performance Benchmark
 ========================================
 
+_NOTE: This comparison was updated on July 19, 2016 to use `react@15.1.0` and `marko-widgets@6.1.3`._
+
 The goal of this project is to provide a _real-world_ sample app that can be used to compare the performance of two different approaches of building UI component-centric, [_isomorphic_](http://nerds.airbnb.com/isomorphic-javascript-future-web-apps/) web applications:
 
-1. [Marko](https://github.com/raptorjs/marko) + [Marko Widgets](https://github.com/raptorjs/marko-widgets): UI components rendered using Marko templates with automatic binding of client-side behavior provided by [Marko Widgets](https://github.com/raptorjs/marko-widgets)
+1. [Marko](https://github.com/raptorjs/marko) + [Marko Widgets](https://github.com/raptorjs/marko-widgets): UI components rendered using Marko templates with automatic binding of client-side behavior provided by [Marko Widgets](https://github.com/raptorjs/marko-widgets). Marko templates are used to render the view and [morphdom](https://github.com/patrick-steele-idem/morphdom) is used to diff/patch the DOM.
 1. [React](http://facebook.github.io/react/): UI components built using JSX and rendered to the DOM using a virtual DOM with a diffing algorithm to minimize updates. UI components must be rendered on the client for behavior to be attached.
 
 We are interested in the following metrics for comparing the performance of Marko and React:
@@ -21,9 +23,9 @@ We are interested in the following metrics for comparing the performance of Mark
 
 While I, [Patrick Steele-Idem](https://github.com/patrick-steele-idem), am the author of [Marko](https://github.com/raptorjs/marko) and [Marko Widgets](https://github.com/raptorjs/marko-widgets), every effort was made to be fair and unbiased when putting together this comparison. I've also asked other developers to review this benchmark. If you find a problem please open a Github issue to discuss.
 
-Both Marko and React have a lot of merit when it comes to building webapps, and I was genuinely curious to see how they performed in practice. React has the benefit that there is only one way for a React component to update its DOM and that is via re-rendering the React component. When using Marko and Marko widgets there are _two_ ways for a UI component to update the DOM—either via re-rendering the component (completely destroys what was there before) or using a widget to manually manipulate the previously rendered DOM based on the new state. The simplification offered by React is what motivated me to compare the two approaches in more depth. In comparison, the Marko approach has the benefit that it is much lighter while still allowing a robust UI component architecture.
+Both Marko Widgets and React have a lot of merit when it comes to building webapps based on UI components, and I was genuinely curious to see how they performed in practice. Both React and Marko Widgets a DOM diffing/patching algorithm to update the view. However, React makes use of a virtual DOM while Marko Widgets only utilizes the real DOM. Marko Widgets uses the [morphdom](https://github.com/patrick-steele-idem/morphdom) module to update the DOM with the minimum number of changes
 
-Also, this benchmark focuses on both server-side and client-side rendering performance. Many apps benefit from rendering the initial page on the server since it supports SEO and it often reduces the time to render the initial page. All subsequent updates can easily happen on the client after the required JS and CSS code have been downloaded.
+Also, this benchmark focuses on both server-side and client-side rendering performance. Many apps benefit from rendering the initial page on the server since it supports SEO and it often reduces the time to render the initial page. Both React and Marko Widgets support rendering on both the server and in the browser.
 
 # Test Setup Overview
 
@@ -118,20 +120,20 @@ Time taken to cycle through 100 pages of search results (100 search results item
         </tr>
         <tr>
             <td>Marko</td>
-            <td align="right">1736 ms</td>
-            <td align="right">1719 ms</td>
-            <td align="right">1783 ms</td>
+            <td align="right">1936 ms</td>
+            <td align="right">2010 ms</td>
+            <td align="right">1947 ms</td>
         </tr>
         <tr>
             <td>React</td>
-            <td align="right">1758 ms</td>
-            <td align="right">1715 ms</td>
-            <td align="right">1648 ms</td>
+            <td align="right">1707 ms</td>
+            <td align="right">1660 ms</td>
+            <td align="right">1510 ms</td>
         </tr>
     </tbody>
 </table>
 
-_NOTE: v44.0.2403.130 (64-bit)_
+_NOTE: v51.0.2704.106 (64-bit)
 
 ### Firefox
 
@@ -145,15 +147,15 @@ _NOTE: v44.0.2403.130 (64-bit)_
         </tr>
         <tr>
             <td>Marko</td>
-            <td align="right">1909 ms</td>
-            <td align="right">2094 ms</td>
-            <td align="right">1912 ms</td>
+            <td align="right">2275 ms</td>
+            <td align="right">2383 ms</td>
+            <td align="right">2501 ms</td>
         </tr>
         <tr>
             <td>React</td>
-            <td align="right">1891 ms</td>
-            <td align="right">2074 ms</td>
-            <td align="right">1808 ms</td>
+            <td align="right">2679 ms</td>
+            <td align="right">2238 ms</td>
+            <td align="right">2189 ms</td>
         </tr>
     </tbody>
 </table>
@@ -172,20 +174,20 @@ _NOTE: v40.0_
         </tr>
         <tr>
             <td>Marko</td>
-            <td align="right">1403 ms</td>
-            <td align="right">1317 ms</td>
-            <td align="right">1321 ms</td>
+            <td align="right">1599 ms</td>
+            <td align="right">1606 ms</td>
+            <td align="right">1548 ms</td>
         </tr>
         <tr>
             <td>React</td>
-            <td align="right">1347 ms</td>
-            <td align="right">1222 ms</td>
-            <td align="right">1331 ms</td>
+            <td align="right">1459 ms</td>
+            <td align="right">1397 ms</td>
+            <td align="right">1424 ms</td>
         </tr>
     </tbody>
 </table>
 
-_NOTE: 8.0.7 (10600.7.12)_
+_NOTE: 9.1.1 (11601.6.17)_
 
 ### iOS Mobile Safari
 
@@ -199,20 +201,20 @@ _NOTE: 8.0.7 (10600.7.12)_
         </tr>
         <tr>
             <td>Marko</td>
-            <td align="right">6387 ms</td>
-            <td align="right">5641 ms</td>
-            <td align="right">5762 ms</td>
+            <td align="right">4867 ms</td>
+            <td align="right">4535 ms</td>
+            <td align="right">4628 ms</td>
         </tr>
         <tr>
             <td>React</td>
-            <td align="right">6999 ms</td>
-            <td align="right">6610 ms</td>
-            <td align="right">6335 ms</td>
+            <td align="right">3747 ms</td>
+            <td align="right">3501 ms</td>
+            <td align="right">3490 ms</td>
         </tr>
     </tbody>
 </table>
 
-_NOTE: iPhone 6 with iOS 8.4_
+_NOTE: iPhone 6 with iOS 9.3.2_
 
 ## Page Weight
 
@@ -230,14 +232,14 @@ _NOTE: iPhone 6 with iOS 8.4_
     <tbody>
         <tr>
             <td>Marko</td>
-            <td align="right">58.15 KB</td>
-            <td align="right"><b>18.18 KB</b></td>
+            <td align="right">69.65 KB</td>
+            <td align="right"><b>19.18 KB</b></td>
             <td>✔</td>
         </tr>
         <tr>
             <td>React</td>
-            <td align="right">178.83 KB</td>
-            <td align="right"><b>50.16 KB</b></td>
+            <td align="right">232.09 KB KB</td>
+            <td align="right"><b>62.84 KB</b></td>
             <td>✖</td>
         </tr>
     </tbody>
@@ -257,14 +259,14 @@ _NOTE: iPhone 6 with iOS 8.4_
     <tbody>
         <tr>
             <td>Marko</td>
-            <td align="right">38.33 KB</td>
-            <td align="right">4.89 KB</td>
+            <td align="right">40.9 KB</td>
+            <td align="right">5.2 KB</td>
             <td>✔</td>
         </tr>
         <tr>
             <td>React</td>
-            <td align="right">54.76 KB</td>
-            <td align="right">7.57 KB</td>
+            <td align="right">46.6 KB</td>
+            <td align="right">7.3 KB</td>
             <td>✖</td>
         </tr>
     </tbody>
@@ -299,7 +301,7 @@ On both the server and the client, the `NODE_ENV` variable is set to `production
 For Marko, the [main page template](src/marko/pages/search-results/template.marko) includes a custom tag that delegates rendering of the body of the page to the [`<app-search-results>`](src/marko/components/app-search-results) UI component:
 
 ```html
-<app-search-results search-results-data="$searchResultsData"/>
+<app-search-results search-results-data=searchResultsData/>
 ```
 
 The template for the [`<app-search-results>`](src/marko/components/app-search-results) component is shown below:
@@ -311,8 +313,8 @@ The template for the [`<app-search-results>`](src/marko/components/app-search-re
     </button>
     <div>
         <!-- Loop over the search results items: -->
-        <app-search-results-item item-data="$item"
-            for="item in data.items; status-var=loop"
+        <app-search-results-item item-data=item
+            for(item in data.items | status-var=loop)
             w-id="item-${loop.getIndex()}"/>
     </div>
 </div>
@@ -322,12 +324,10 @@ Behavior is attached to the DOM nodes by binding a "widget" to the root DOM node
 
 ```html
 <div class="search-results-item" w-bind>
-    <h2>$data.title</h2>
-    <img src="$!data.image" alt="$data.title"/>
-    <span>$!data.price</span>
-    <button type="button" w-onclick="handleBuyButtonClick">
-        Buy now!
-    </button>
+    <h2>${data.title}</h2>
+    <img src="$!{data.image}" alt=data.title/>
+    <span>$!{data.price}</span>
+    <button type="button" w-onClick="handleBuyButtonClick">Buy now!</button>
 </div>
 ```
 
@@ -387,11 +387,13 @@ The re-rendering of the initial page on the client is done in [src/react/pages/s
 
 ```javascript
 var React = require('react');
+var ReactDOM = require('react-dom');
+
 var SearchResults = require('src/react/components/SearchResults');
 
 var mountNode = document.getElementById("searchResultsMount");
 
-React.render(
+ReactDOM.render(
     <SearchResults searchResultsData={window.searchResultsData}/>,
     mountNode);
 ```
@@ -407,11 +409,7 @@ Related code:
 
 # Final Thoughts
 
-It's important to emphasize that this benchmark is only comparing one specific use case: rendering a page of search results. The numbers gathered here suggest that React is not ready for use on the server, but there might be instances were React performs just fine when rendering on the server. On the client, the gap is smaller and it is possible there are certain use cases where React does really well. One such use case might be an application that requires frequent and small updates to the DOM.
-
-With that said, Marko can be used in combination _with_ React. Marko can be used to render the bulk of the page while React could be used to render smaller parts of the page that benefit from React. A Marko component can easily delegate rendering to a React component.
-
-Finally, we would like to revisit these benchmarks when the code to support server-side rendering of React components has been further optimized. Also, the Node.js runtime and the io.js runtime are constantly evolving so these numbers may change over time due to the underlying platform. In addition, we are seeing significant differences when running tests in various browsers (e.g., Firefox took much longer to complete the client-side tests).
+It's important to emphasize that this benchmark is only comparing one specific use case: rendering a page of search results. The numbers gathered here suggest that there is significant overhead when using React on the server. On the client, React has the performance advantage at runtime but the gap is much smaller. However, React requires a much large amount of JavaScript to be downloaded and executed.
 
 # Raw Data
 

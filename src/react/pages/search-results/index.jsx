@@ -2,6 +2,7 @@ var template = require('marko').load(require.resolve('./template.marko'));
 var searchService = require('src/shared/services/search');
 
 var React = require('react');
+var ReactDOMServer = require('react-dom/server');
 var SearchResults = require('src/react/components/SearchResults');
 
 /**
@@ -27,7 +28,7 @@ module.exports = function(req, res) {
 
                 // Use React to render the SearchResults component to an HTML
                 // string that will be provided to the page template:
-                var searchResultsHTML = React.renderToString(
+                var searchResultsHTML = ReactDOMServer.renderToString(
                         <SearchResults searchResultsData={searchResultsData}/>);
 
                 // Serialize the input data to JSON since we need to

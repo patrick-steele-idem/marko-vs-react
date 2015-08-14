@@ -1,8 +1,6 @@
 <div class="search-results-item" w-bind>
-    <h2>$data.title</h2>
-    <img src="$!data.image" alt="$data.title"/>
-    <span>$!data.price</span>
-    <button type="button" w-onclick="handleBuyButtonClick">
-        Buy now!
-    </button>
+    <h2>${data.title}</h2>
+    <img src="$!{data.image}" alt=data.title/>
+    <span>$!{data.price}</span>
+    <button type="button" w-onclick="handleBuyButtonClick">Buy now!</button>
 </div>

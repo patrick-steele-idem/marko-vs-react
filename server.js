@@ -1,5 +1,9 @@
 require('app-module-path').addPath(__dirname);
-require('node-jsx').install({extension: '.jsx'});
+require("babel-register")({
+    // and .js so you'll have to add them back if you want them to be used again.
+    extensions: [".jsx"]
+});
+
 require('marko/node-require').install();
 
 var express = require('express');

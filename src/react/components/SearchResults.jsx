@@ -1,4 +1,3 @@
-/** @jsx React.DOM */
 var React = require('react');
 var SearchResultsItem = require('src/react/components/SearchResultsItem');
 var measurePageCycling = require('src/shared/util/measurePageCycling');

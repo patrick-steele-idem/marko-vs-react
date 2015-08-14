@@ -2,42 +2,32 @@
 Declare the top-level dependencies in a separate browser.json file:
 -->
 <lasso-page name="react" package-path="./browser.json"/>
-
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>React Rendering | Marko vs React</title>
-
-    <!--
+    <head>
+        <meta charset="UTF-8"/>
+        <title>React Rendering | Marko vs React</title>
+        <!--
     CSS <link> tags will be inserted here:
     -->
-    <lasso-head/>
-</head>
-<body>
-    <h1>Search Results - React</h1>
-
-    <ol style="display: none;" id="results">
-    </ol>
-
-    <!--
+        <lasso-head/>
+    </head>
+    <body>
+        <h1>Search Results - React</h1>
+        <ol style="display: none;" id="results"/>
+        <!--
     Loading the search results is done asynchronously so a
     <async-fragment> tag is used to asynchronously render
     the body of the page.
     -->
-    <async-fragment data-provider="data.searchResults"
-        var="searchResultsData">
-
-        <!--
+        <async-fragment data-provider=data.searchResults var="searchResultsData">
+            <!--
         Mount the rendered React component in the following HTML element.
 
         NOTE: $!{...} bypasses escaping of special HTML characters
         -->
-        <div id="searchResultsMount">
-            $!{searchResultsData.searchResultsHTML}
-        </div>
-
-        <!--
+            <div id="searchResultsMount">$!{searchResultsData.searchResultsHTML}</div>
+            <!--
         In order for behavior to be attached to the
         React UI components rendered on the server, we must re-render the
         SearchResults UI component _again_ on the client using the exact same
@@ -48,23 +38,20 @@ Declare the top-level dependencies in a separate browser.json file:
         and it uses the data assigned to the global variable produced
         by the following inline script:
         -->
-        <script>
-        window.searchResultsData=$!{searchResultsData.searchResultsJSON};
-        </script>
-
-    </async-fragment>
-
-    <!--
+            <script>
+                window.searchResultsData=$!{searchResultsData.searchResultsJSON};
+            </script>
+        </async-fragment>
+        <!--
     Inject the body <script> tags to include the required client-side code here:
     -->
-    <lasso-body/>
-
-    <!--
+        <lasso-body/>
+        <!--
     If launched using the browser-refresh app launcher then a <script>
     tag will be injected to enable instant page refreshes when any
     file is modified. See:
     https://www.npmjs.com/package/browser-refresh
     -->
-    <browser-refresh/>
-</body>
+        <browser-refresh/>
+    </body>
 </html>
