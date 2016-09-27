@@ -238,7 +238,7 @@ _NOTE: iPhone 6 with iOS 9.3.2_
         </tr>
         <tr>
             <td>React</td>
-            <td align="right">232.09 KB KB</td>
+            <td align="right">232.09 KB</td>
             <td align="right"><b>62.84 KB</b></td>
             <td>✖</td>
         </tr>
