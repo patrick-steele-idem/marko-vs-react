@@ -19,13 +19,13 @@ Declare the top-level page JS/CSS dependencies in a separate lasso.json file:
     The following part of the page is rendered asynchronously when
     the search results data becomes available:
     -->
-        <async-fragment data-provider=data.searchResults var="searchResultsData">
+        <await(searchResultsData from data.searchResults)>
             <!--
         Forward along the data to the src/marko/components/app-search-results
         UI component to do the rendering of the search results:
         -->
             <app-search-results search-results-data=searchResultsData/>
-        </async-fragment>
+        </await>
         <!--
     Inject the body <script> tags to include the required client-side code here:
     -->

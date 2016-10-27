@@ -65,24 +65,44 @@ module.exports = function measurePageCycling(updateDOMFunc) {
             // get the next page of search results
             pageIndex++;
 
-            var searchResultsData = searchService.performSearch({
+            searchService.performSearch({
                     pageIndex: pageIndex
-                });
+                },
+                function(err, searchResultsData) {
+                    if (err) {
+                        return done(err);
+                    }
 
-            updateDOMFunc(searchResultsData, next);
+                    // Search results have been updated so tell the calling
+                    // code to update the DOM using the new search results.
+                    // The "next" function that is provided to the calling code
+                    // should be invoked when the DOM has been *completely*
+                    // updated (i.e. all changes flushed to the DOM).
+                    updateDOMFunc(searchResultsData, next);
+                });
         }
 
         runNext();
     }
 
     function warmup() {
-        var searchResultsData = searchService.performSearch({
+        searchService.performSearch({
                 pageIndex: 0
-            });
+            },
+            function(err, searchResultsData) {
+                if (err) {
+                    throw err;
+                }
 
-        updateDOMFunc(searchResultsData, function() {
-            process.nextTick(benchmark);
-        });
+                // Search results have been updated so tell the calling
+                // code to update the DOM using the new search results.
+                // The "next" function that is provided to the calling code
+                // should be invoked when the DOM has been *completely*
+                // updated (i.e. all changes flushed to the DOM).
+                updateDOMFunc(searchResultsData, function() {
+                    process.nextTick(benchmark);
+                });
+            });
     }
 
     warmup();

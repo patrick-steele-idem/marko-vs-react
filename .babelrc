@@ -1,3 +1,4 @@
 {
-    "presets": ["react"]
+    "presets": ["react"],
+    "plugins": ["transform-react-constant-elements"]
 }

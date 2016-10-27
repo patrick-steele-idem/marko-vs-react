@@ -1,1 +1,1 @@
-require('src/marko/components/app-search-results');
+require('~/src/marko/components/app-search-results');

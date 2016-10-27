@@ -1,6 +1,4 @@
-var measurePageCycling = require('src/shared/util/measurePageCycling');
-
-var batchUpdate = require('marko-widgets').batchUpdate;
+var measurePageCycling = require('~/src/shared/util/measurePageCycling');
 
 module.exports = require('marko-widgets').defineComponent({
     template: require('./template.marko'),
@@ -13,18 +11,15 @@ module.exports = require('marko-widgets').defineComponent({
         var self = this;
         var searchResultsData;
 
-        function doUpdate() {
-            self.setProps({
-                searchResultsData: searchResultsData
-            });
-        }
-
         // Start cycling through search result pages and update the DOM
         // after receiving each search results page
         measurePageCycling(
             function updateDOM(newSearchResultsData, done) {
                 searchResultsData = newSearchResultsData;
-                batchUpdate(doUpdate);
+                self.setProps({
+                    searchResultsData: searchResultsData
+                });
+                self.update();
                 done();
             });
     }

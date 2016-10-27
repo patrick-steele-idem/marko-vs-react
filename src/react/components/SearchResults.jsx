@@ -1,6 +1,7 @@
 var React = require('react');
-var SearchResultsItem = require('src/react/components/SearchResultsItem');
-var measurePageCycling = require('src/shared/util/measurePageCycling');
+var SearchResultsItem = require('~/src/react/components/SearchResultsItem');
+var Footer = require('~/src/react/components/Footer');
+var measurePageCycling = require('~/src/shared/util/measurePageCycling');
 
 module.exports = React.createClass({
       getInitialState: function() {
@@ -47,6 +48,7 @@ module.exports = React.createClass({
                       return <SearchResultsItem key={i} itemData={item}/>
                   })}
                   </div>
+                  <Footer/>
               </div>
           );
       }

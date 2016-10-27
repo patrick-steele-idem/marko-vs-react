@@ -20,7 +20,7 @@ Declare the top-level dependencies in a separate browser.json file:
     <async-fragment> tag is used to asynchronously render
     the body of the page.
     -->
-        <async-fragment data-provider=data.searchResults var="searchResultsData">
+        <await(searchResultsData from data.searchResults)>
             <!--
         Mount the rendered React component in the following HTML element.
 
@@ -41,7 +41,7 @@ Declare the top-level dependencies in a separate browser.json file:
             <script>
                 window.searchResultsData=$!{searchResultsData.searchResultsJSON};
             </script>
-        </async-fragment>
+        </await>
         <!--
     Inject the body <script> tags to include the required client-side code here:
     -->

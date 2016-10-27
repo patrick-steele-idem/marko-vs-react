@@ -1,10 +1,20 @@
-require('app-module-path').addPath(__dirname);
+if (!process.env.NODE_ENV) {
+    process.env.NODE_ENV = 'production';
+}
+
+require('require-self-ref');
+require('marko/express');
 require("babel-register")({
     // and .js so you'll have to add them back if you want them to be used again.
     extensions: [".jsx"]
 });
 
 require('marko/node-require').install();
+require('lasso/node-require-no-op').enable('.less', '.css');
+
+require('marko/compiler').configure({
+    assumeUpToDate: false
+});
 
 var express = require('express');
 var serveStatic = require('serve-static');
@@ -15,7 +25,12 @@ var isProduction = process.env.NODE_ENV === 'production';
 
 require('lasso').configure({
     plugins: [
-        'lasso-marko',
+        {
+            plugin: 'lasso-marko',
+            config: {
+                output: 'vdom'
+            }
+        },
         'lasso-jsx'
     ],
     bundlingEnabled: isProduction ? true : false,
@@ -29,18 +44,24 @@ require('lasso').configure({
                 'require: ' + require.resolve('./src/shared/services/search-results-data.json')
             ]
         }
-    ]
+    ],
+    require: {
+        transforms: [
+            require('envify')
+        ]
+    }
 });
 
 var app = express();
 app.use(compression());
+app.get('/benchmark', require('./src/shared/pages/benchmark'));
 app.get('/marko', require('./src/marko/pages/search-results'));
 app.get('/react', require('./src/react/pages/search-results'));
 app.use('/static', serveStatic(path.join(__dirname, 'static')));
 app.use('/images', serveStatic(path.join(__dirname, 'images')));
 app.get('/', require('./src/shared/pages/index'));
 
-var port = 8080;
+var port = process.env.PORT ? parseInt(process.env.PORT, 10) : 8080;
 
 app.listen(port, function(err) {
     if (err) {

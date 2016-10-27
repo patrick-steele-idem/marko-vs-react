@@ -1,6 +1,6 @@
 var searchResultsData = require('./search-results-data.json');
 
-exports.performSearch = function(input, callback) {
+exports.performSearch = function(input) {
     var pageIndex = input.pageIndex || 0;
     var pageSize = 100;
     var start = pageIndex * pageSize;
@@ -17,5 +17,5 @@ exports.performSearch = function(input, callback) {
         items: items
     };
 
-    callback(null, results);
+    return results;
 };
