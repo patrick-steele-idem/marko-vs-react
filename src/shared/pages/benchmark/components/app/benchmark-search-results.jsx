@@ -43,7 +43,7 @@ module.exports = function() {
                 }
 
                 var markoSearchResultsWidget = markoSearchResultsComponent
-                    .render({
+                    .renderSync({
                         searchResultsData: getNextSearchResults()
                     })
                     .appendTo(mountEl)

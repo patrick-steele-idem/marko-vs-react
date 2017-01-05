@@ -1,12 +1,12 @@
-<div class="search-results" w-bind>
-    <button type="button" w-onclick="handleStartButtonClick">
+<div class="search-results">
+    <button type="button" onClick("handleStartButtonClick")>
         Start Client Performance Tests
     </button>
     <div>
         <!-- Loop over the search results items: -->
         <app-search-results-item item-data=item
-            for(item in data.items | status-var=loop)
-            w-id="item-${loop.getIndex()}"/>
+            for(i, item in data.items)
+            ref="item-${i}"/>
     </div>
     <app-footer/>
 </div>

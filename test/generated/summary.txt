@@ -4,22 +4,22 @@ Concurrency: 1
 Avg. response time:
 
   marko:          3 ms (winner)
-  react:          9 ms (262.43% worse)
+  react:          9 ms (269.52% worse)
 
 Avg. req/s:
 
-  marko:  392.72 req/s (winner)
-  react:  109.46 req/s (72.13% worse)
+  marko:  395.03 req/s (winner)
+  react:  107.70 req/s (72.74% worse)
 
 Avg. CPU:
 
-  marko:        68.97% (winner)
-  react:        79.30% (14.99% worse)
+  marko:        71.09% (winner)
+  react:        79.95% (12.46% worse)
 
 Avg. memory:
 
-  marko:     145.27 MB (winner)
-  react:     185.40 MB (27.62% worse)
+  marko:     271.44 MB (17.67% worse)
+  react:     230.69 MB (winner)
 
 Concurrency: 2
 --------------
@@ -27,22 +27,22 @@ Concurrency: 2
 Avg. response time:
 
   marko:          3 ms (winner)
-  react:         13 ms (353.57% worse)
+  react:         13 ms (349.87% worse)
 
 Avg. req/s:
 
-  marko:  696.71 req/s (winner)
-  react:  154.39 req/s (77.84% worse)
+  marko:  707.25 req/s (winner)
+  react:  158.07 req/s (77.65% worse)
 
 Avg. CPU:
 
-  marko:        59.64% (winner)
-  react:        95.43% (59.99% worse)
+  marko:        62.85% (winner)
+  react:        94.57% (50.46% worse)
 
 Avg. memory:
 
-  marko:     202.80 MB (winner)
-  react:     214.91 MB (5.97% worse)
+  marko:     294.48 MB (winner)
+  react:     295.98 MB (0.51% worse)
 
 Concurrency: 3
 --------------
@@ -50,45 +50,45 @@ Concurrency: 3
 Avg. response time:
 
   marko:          4 ms (winner)
-  react:         19 ms (395.79% worse)
+  react:         18 ms (398.14% worse)
 
 Avg. req/s:
 
-  marko:  781.12 req/s (winner)
-  react:  157.99 req/s (79.77% worse)
+  marko:  821.93 req/s (winner)
+  react:  165.35 req/s (79.88% worse)
 
 Avg. CPU:
 
-  marko:        71.39% (winner)
-  react:        97.04% (35.94% worse)
+  marko:        71.81% (winner)
+  react:        97.93% (36.37% worse)
 
 Avg. memory:
 
-  marko:     215.62 MB (winner)
-  react:     223.50 MB (3.65% worse)
+  marko:     224.71 MB (winner)
+  react:     258.43 MB (15.01% worse)
 
 Concurrency: 4
 --------------
 
 Avg. response time:
 
-  marko:          5 ms (winner)
-  react:         25 ms (433.18% worse)
+  marko:          4 ms (winner)
+  react:         25 ms (457.35% worse)
 
 Avg. req/s:
 
-  marko:  843.68 req/s (winner)
-  react:  158.75 req/s (81.18% worse)
+  marko:  894.12 req/s (winner)
+  react:  160.93 req/s (82.00% worse)
 
 Avg. CPU:
 
-  marko:        71.24% (winner)
-  react:        97.11% (36.32% worse)
+  marko:        69.87% (winner)
+  react:        96.96% (38.78% worse)
 
 Avg. memory:
 
-  marko:     213.82 MB (winner)
-  react:     214.11 MB (0.13% worse)
+  marko:     225.65 MB (winner)
+  react:     368.49 MB (63.30% worse)
 
 Concurrency: 5
 --------------
@@ -96,20 +96,20 @@ Concurrency: 5
 Avg. response time:
 
   marko:          6 ms (winner)
-  react:         31 ms (411.34% worse)
+  react:         30 ms (390.17% worse)
 
 Avg. req/s:
 
-  marko:  808.10 req/s (winner)
-  react:  158.31 req/s (80.41% worse)
+  marko:  824.47 req/s (winner)
+  react:  168.45 req/s (79.57% worse)
 
 Avg. CPU:
 
-  marko:        75.61% (winner)
-  react:        96.89% (28.15% worse)
+  marko:        67.42% (winner)
+  react:        97.76% (45.00% worse)
 
 Avg. memory:
 
-  marko:     232.31 MB (15.08% worse)
-  react:     201.88 MB (winner)
+  marko:     235.35 MB (winner)
+  react:     263.88 MB (12.12% worse)
 

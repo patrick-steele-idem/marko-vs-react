@@ -31,10 +31,14 @@ require('lasso').configure({
                 output: 'vdom'
             }
         },
+        {
+            plugin: 'minprops/lasso',
+            enabled: isProduction
+        },
         'lasso-jsx'
     ],
     bundlingEnabled: isProduction ? true : false,
-    minify: isProduction ? true : false,
+    minify: false,//isProduction ? true : false,
     fingerprintsEnabled: isProduction ? true : false,
     outputDir: path.join(__dirname, 'static'),
     bundles: [

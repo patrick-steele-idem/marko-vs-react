@@ -7,4 +7,8 @@ module.exports = function(req, res) {
     template.render({
         searchResults: searchService.performSearch({})
     }, res);
+
+    res.on('error', function(err) {
+        console.error('ERROR:', err);
+    })
 };

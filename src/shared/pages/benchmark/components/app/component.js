@@ -5,20 +5,15 @@ var benchmarks = {
     'search-results': require('./benchmark-search-results')
 };
 
-module.exports = require('marko-widgets').defineComponent({
-    template: require('./template.marko'),
-
+module.exports = {
     init: function() {
         this.running = false;
     },
 
-    handleBenchmarkButtonClick: function(event, el) {
+    handleBenchmarkButtonClick: function(benchmarkName, event, el) {
         if (this.running) {
             return;
         }
-
-        var benchmarkName = el.getAttribute('data-benchmark');
-
 
         var oldButtonLabel = el.innerHTML;
         el.innerHTML = oldButtonLabel + ' - running...';
@@ -56,4 +51,4 @@ module.exports = require('marko-widgets').defineComponent({
             });
 
     }
-});
+};

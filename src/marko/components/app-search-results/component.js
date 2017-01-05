@@ -1,8 +1,6 @@
 var measurePageCycling = require('~/src/shared/util/measurePageCycling');
 
-module.exports = require('marko-widgets').defineComponent({
-    template: require('./template.marko'),
-
+module.exports = {
     getTemplateData: function(state, input) {
         return input.searchResultsData;
     },
@@ -23,4 +21,4 @@ module.exports = require('marko-widgets').defineComponent({
                 done();
             });
     }
-});
+};

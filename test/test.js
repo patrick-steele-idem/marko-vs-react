@@ -57,17 +57,21 @@ function run(callback) {
             callback(null, statsByName);
         });
 
-        var url = 'http://localhost:8080/' +  name;
+        var url = 'http://localhost:8080/' +  name + '/';
 
         function saveResponseHTML(callback) {
             http.get(url, function(res) {
-                    if (res.statusCode !== 200) {
-                        throw new Error('Response not OK: ' + url);
-                    }
-
                     var outputFilePath = path.join(outputDir, 'html-' + name + '.html');
-                    res.pipe(fs.createWriteStream(outputFilePath, 'utf8'));
-                    callback();
+                    res
+                        .pipe(fs.createWriteStream(outputFilePath, 'utf8'))
+                        .on('finish', function() {
+                            if (res.statusCode !== 200) {
+                                console.log('Output file: ' + outputFilePath);
+                                throw new Error('Status code: ' + res.statusCode + ' - Response not OK: ' + url);
+                            }
+
+                            callback();
+                        });
                 });
         }
 
