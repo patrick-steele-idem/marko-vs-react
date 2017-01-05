@@ -74,12 +74,9 @@ The test setup is described in more detail later in this document, but below are
 
 - MacBook Pro (2.8 GHz Intel Core i7, 16 GB 1600 MHz DDR3)
 - Server-side:
-    - Node.js: v4.4.3
+    - Node.js: v7.3.0
 - Client-side:
-    - Chrome: v51.0.2704.106 (64-bit)
-    - Firefox: v47.0.1
-    - Safari: 9.1.1 (11601.6.17)
-    - iPhone 6 with iOS 9.3.2
+    - (see versions below)
 
 ## Results Summary
 
