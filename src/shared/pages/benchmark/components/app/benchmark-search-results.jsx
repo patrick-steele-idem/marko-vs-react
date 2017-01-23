@@ -73,7 +73,7 @@ module.exports = function() {
                     return searchService.performSearch({ pageIndex: pageIndex++ });
                 }
 
-                var reactSearchResultsWidget = ReactDOM.render(
+                ReactDOM.render(
                     <ReactSearchResults searchResultsData={getNextSearchResults()} />,
                     mountEl);
 
@@ -84,12 +84,12 @@ module.exports = function() {
                     },
 
                     fn: function(done) {
-                        // Trigger an update of the DOM by updating the internal state
-                        // with the new search results data. When the changes
-                        // are flushed to the DOM we invoke the provided callback.
-                        reactSearchResultsWidget.setState({
-                            searchResultsData: getNextSearchResults()
-                        }, done);
+                        ReactDOM.render(
+                            <ReactSearchResults searchResultsData={getNextSearchResults()} />,
+                            mountEl,
+                        done);
+
+
                     }
                 };
             }

@@ -1,16 +1,28 @@
 <script>
     module.exports = {
+        onInput: function(input) {
+            this.state = {
+                purchased: false,
+                itemData: input.itemData
+            };
+        },
+
         handleBuyButtonClick: function() {
-            this.el.style.backgroundColor = 'yellow';
+            this.state.purchased = true;
         }
     };
 </script>
 
-var itemData=data.itemData
+var itemData=state.itemData
 
-<div class="search-results-item">
+<div class=["search-results-item"] style={ backgroundColor: state.purchased ? '#f1c40f' : ''}>
     <h2>${itemData.title}</h2>
     <img src=itemData.image alt=itemData.title/>
     <span>${itemData.price}</span>
-    <button type="button" onClick("handleBuyButtonClick")>Buy now!</button>
+    <if(state.purchased)>
+        <div>Purchased!</div>
+    </if>
+    <else>
+        <button type="button" onClick("handleBuyButtonClick")>Buy now!</button>
+    </else>
 </div>
