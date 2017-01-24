@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <script>
+            window.startTime = Date.now();
+            window.onMount = function() {
+                var timeToInteractive = Date.now() - window.startTime;
+                console.log('TIME TO INTERACTIVE:', timeToInteractive + 'ms');
+            }
+        </script>
+        <meta charset="UTF-8"/>
+        <title>Marko vs React: ${out.global.title}</title>
+    </head>
+    <body>
+        <h1>Marko vs React: ${out.global.title}</h1>
+        <ol style="display: none;" id="results"/>
+
+        <include(data.body)/>
+        <script>
+            window.addBench = function() {};
+        </script>
+        <script src=out.global.jsBundle></script>
+    </body>
+</html>

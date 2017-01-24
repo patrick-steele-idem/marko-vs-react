@@ -1,0 +1,15 @@
+class {
+    onMount() {
+        window.onMount();
+    }
+}
+
+<div.search-results>
+    <div>
+        <for(item in data.searchResultsData.items)>
+            <!-- Loop over the search results items: -->
+            <app-search-results-item item=item/>
+        </for>
+    </div>
+    <app-footer/>
+</div>

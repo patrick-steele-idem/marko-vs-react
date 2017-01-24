@@ -3,7 +3,7 @@
         "Promise"
     ],
     "node" : true,
-    "es5" : false,
+    "esnext" : true,
     "browser" : true,
     "boss" : false,
     "curly": false,

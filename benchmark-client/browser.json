@@ -1,0 +1,9 @@
+{
+    "dependencies": [
+        "lodash/lodash.js",
+        "benchmark/benchmark.js",
+        "require: ./components/app",
+        "require-run: ./client",
+        "require-run: ../benchmarks/*/client.js"
+    ]
+}

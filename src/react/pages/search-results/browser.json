@@ -1,6 +1,0 @@
-{
-    "dependencies": [
-        /* Use ./client.jsx as the entry point for our client-side app */
-        "require-run: ./client"
-    ]
-}
