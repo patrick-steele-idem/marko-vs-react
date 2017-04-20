@@ -1,4 +1,4 @@
-> __DEPRECATED! Please see the following benchmark instead since it is actively maintained: https://github.com/marko-js/isomorphic-ui-benchmarks __
+> __DEPRECATED! Please see the following benchmark instead since it is actively maintained:__ https://github.com/marko-js/isomorphic-ui-benchmarks
 
 Marko vs React: Performance Benchmark
 ========================================
